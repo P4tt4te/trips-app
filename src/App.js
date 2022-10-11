@@ -3,6 +3,8 @@ import { NavBar } from './components/NavBar/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import { ClientState } from './store/states/ClientState';
 import { ClientReducer } from './store/reducers/ClientReducer';
+import { TripsState } from './store/states/TripsState';
+import { TripsReducer } from './store/reducers/TripsReducer';
 import { COLORS } from './style/colors';
 
 /* move this somewhere else */
@@ -33,6 +35,11 @@ function App() {
     ClientState
   );
 
+  const [TripsLocalState, TripsDispatch] = useReducer(
+    TripsReducer,
+    TripsState
+  );
+
   return (
     <ThemeProvider theme={theme}>
       <AppTheme>
@@ -52,7 +59,7 @@ function App() {
                 >
                   <Username />
                   <Searchbar />
-                  <TripCardList />
+                  <TripCardList trips={TripsLocalState.trips} />
                 </div>
               }
             />
