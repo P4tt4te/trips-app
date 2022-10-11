@@ -1,5 +1,8 @@
+import { useReducer } from 'react';
 import { NavBar } from './components/NavBar/NavBar';
 import { Routes, Route } from 'react-router-dom';
+import { ClientState } from './store/states/ClientState';
+import { ClientReducer } from './store/reducers/ClientReducer';
 import { COLORS } from './style/colors';
 
 /* move this somewhere else */
@@ -25,6 +28,11 @@ const AppTheme = styled.div`
 `;
 
 function App() {
+  const [ClientLocalState, ClientDispatch] = useReducer(
+    ClientReducer,
+    ClientState
+  );
+
   return (
     <ThemeProvider theme={theme}>
       <AppTheme>
@@ -48,7 +56,36 @@ function App() {
                 </div>
               }
             />
-            <Route path="my-trips" element={<h1>My Trips</h1>} />
+            <Route
+              path="my-trips"
+              element={
+                <div>
+                  <h1>My Trips ({ClientLocalState.username}) : </h1>
+                  {ClientLocalState.trips.length > 0 ? (
+                    ClientLocalState.trips.map((city) => {
+                      return (
+                        <div key={city.id}>
+                          <span>id: {city.id}</span>
+                          <p>{city.destination}</p>
+                          <button
+                            onClick={() =>
+                              ClientDispatch({
+                                type: 'remove_trip',
+                                tripId: city.id,
+                              })
+                            }
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p>Aucun trajet reservé.</p>
+                  )}
+                </div>
+              }
+            />
           </Routes>
         </div>
       </AppTheme>
