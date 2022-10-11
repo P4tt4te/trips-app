@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Button = ({ name, onClick }) => {
   const StyledButton = styled.button`
@@ -8,7 +8,7 @@ export const Button = ({ name, onClick }) => {
     color: white;
     border: 0;
     padding: 10px;
-    background-color : #20B970;
+    background-color : ${props => props.theme.colors.green};
     border-radius: 8px;
   `;
 
