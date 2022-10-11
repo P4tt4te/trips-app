@@ -14,6 +14,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { TripCardList } from './components/TripCardList/TripCardList';
 import { Searchbar } from './components/Searchbar/Searchbar';
 import { Username } from './components/Username/Username';
+import { TripPanel } from './components/TripPanel/TripPanel';
 
 const theme = {
   colors: COLORS,
@@ -59,7 +60,8 @@ function App() {
                 >
                   <Username />
                   <Searchbar />
-                  <TripCardList trips={TripsLocalState.trips} />
+                  <TripCardList trips={TripsLocalState.trips} addSelectTrip={ClientDispatch} />
+                  <TripPanel trip={ClientLocalState.selectedTrip} dispatch={ClientDispatch} />
                 </div>
               }
             />
