@@ -1,7 +1,12 @@
 import { NavBar } from './components/NavBar/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import { COLORS } from './style/colors';
-import styled, { ThemeProvider} from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { TripCardList } from './components/TripCardList/TripCardList';
+
+const AppTheme = styled.div`
+  font-family: ${(props) => props.theme.fontFamily};
+`;
 
 function App() {
   const theme = {
@@ -9,18 +14,14 @@ function App() {
     fontFamily: 'sans-serif',
   };
 
-  const AppTheme = styled.div`
-    font-family: ${props => props.theme.fontFamily};
-  `;
-
   return (
     <ThemeProvider theme={theme}>
       <AppTheme>
         <NavBar />
         <div>
           <Routes>
-            <Route path="/" element={<div>page home</div>} />
-            <Route path="my-trips" element={<div>page my trips</div>} />
+            <Route path="/" element={<TripCardList />} />
+            <Route path="my-trips" element={<h1>My Trips</h1>} />
           </Routes>
         </div>
       </AppTheme>
