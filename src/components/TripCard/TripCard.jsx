@@ -2,28 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
 
+const TripCardTitle = styled.h1`
+  font-size: 1.5em;
+  font-weight: bold;
+`;
+
+const TripCardContainer = styled.div``;
+
+const TripCardMeta = styled.div`
+  font-size: 1em;
+`;
+
+const TripCardDate = styled.span``;
+
+const TripCardPrice = styled.span`
+  display: block;
+`;
+
+const TripCardSeats = styled.span`
+  display: block;
+`;
+
 export const TripCard = ({ trip }) => {
-  const TripCardTitle = styled.h1`
-    font-size: 1.5em;
-    font-weight: bold;
-  `;
-
-  const TripCardContainer = styled.div``;
-
-  const TripCardMeta = styled.div`
-    font-size: 1em;
-  `;
-
-  const TripCardDate = styled.span``;
-
-  const TripCardPrice = styled.span`
-    display: block;
-  `;
-
-  const TripCardSeats = styled.span`
-    display: block;
-  `;
-
   return (
     <TripCardContainer>
       <TripCardTitle>{trip.country}</TripCardTitle>

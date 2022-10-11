@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { TripCard } from '../TripCard/TripCard';
 
-export const TripCardList = () => {
-  const TripCardListTitle = styled.h1`
-    font-size: 2em;
-    font-weight: bold;
-  `;
+const TripCardListTitle = styled.h1`
+  font-size: 2em;
+  font-weight: bold;
+`;
 
+export const TripCardList = () => {
   const trips = [
     {
       country: 'Serbie',
