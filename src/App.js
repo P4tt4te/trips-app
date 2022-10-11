@@ -20,7 +20,7 @@ const AppTheme = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
-  left: 0;
+  left: 200px;
   top: 0;
   right: 0;
   bottom: 0;

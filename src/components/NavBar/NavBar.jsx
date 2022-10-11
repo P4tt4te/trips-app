@@ -10,11 +10,15 @@ const StyledNavBar = styled.div`
   background-color: #20b970;
   border-radius: 8px;
   background: white;
-  width: 150px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
 `;
 
 const NavLinksContainer = styled.div`
