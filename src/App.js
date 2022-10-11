@@ -8,18 +8,26 @@ import './assets/fonts/plus-jarkarta-sans/style.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { TripCardList } from './components/TripCardList/TripCardList';
 
+const theme = {
+  colors: COLORS,
+  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  fontSize: '1.6rem',
+};
+
 const AppTheme = styled.div`
   font-family: ${(props) => props.theme.fontFamily};
   font-size: ${(props) => props.theme.fontSize};
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
 `;
 
 function App() {
-  const theme = {
-    colors: COLORS,
-    fontFamily: "'Plus Jakarta Sans', sans-serif",
-    fontSize: '1.6rem',
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <AppTheme>
