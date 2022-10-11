@@ -1,3 +1,19 @@
+# Trips-app
+## Components
+- Button
+- TripCard
+- TripCardList
+- NavBar
+- TripPanel
+- CompanyLogo
+
+
+## Pages
+- home
+- /my-trips
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
