@@ -6,27 +6,30 @@ import { Button } from '../Button/Button';
 const StyledNavBar = styled.div`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.gray};
-  border: 0;
+  padding: 2rem;
   background-color: #20b970;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: white;
-  width: 200px;
+  width: 24rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
+  position: sticky;
   top: 0;
-  bottom: 0;
+`;
+
+const LogoContainer = styled.div`
+  font-variation-settings: 'wght' 700;
+  font-size: 2rem;
+  margin-bottom: 6.4rem;
+  text-align: center;
+  padding: 2rem;
 `;
 
 const NavLinksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  width: max-content;
+  gap: 2rem;
+  width: 100%;
 `;
 
 export const NavBar = ({ name, onClick }) => {
@@ -45,6 +48,7 @@ export const NavBar = ({ name, onClick }) => {
 
   return (
     <StyledNavBar>
+      <LogoContainer>Trips React App</LogoContainer>
       <NavLinksContainer>
         {linksNames.map((linkname) => {
           return (
@@ -52,9 +56,7 @@ export const NavBar = ({ name, onClick }) => {
               <Button
                 name={linkname.name}
                 variant={
-                  location.pathname === linkname.link
-                    ? 'default'
-                    : 'gray'
+                  location.pathname === linkname.link ? 'default' : 'gray'
                 }
               />
             </Link>
