@@ -17,8 +17,8 @@ const TripCardContainer = styled.div`
   border-radius: 3.2rem;
   overflow: hidden;
   padding: 2rem;
-  position: relative;
   background-size: cover;
+  background-position: top;
 `;
 
 const TripCardMeta = styled.div`
@@ -49,6 +49,7 @@ const TripCardSeats = styled.span`
   border-radius: 1.2rem;
   font-size: 1.2rem;
   font-variation-settings: 'wght' 600;
+  margin-bottom: 2rem;
   color: ${(props) => props.theme.colors.green};
 `;
 
