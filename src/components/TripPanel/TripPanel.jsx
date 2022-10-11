@@ -4,6 +4,7 @@ import { Button } from '../Button/Button';
 
 const StyledTripPanel = styled.div`
   position: fixed;
+  backdrop-filter: blur(10px);
   bottom: 0;
   right: ${(props) => props.width};
   top: 0;
@@ -58,7 +59,11 @@ export const TripPanel = ({ trip, dispatch }) => {
           </TripContainer>
           <ButtonsContainer>
             <Button name="Valider la réservation" onClick={handleValidate} />
-            <Button name="Annuler ?" variant="lightgrey" onClick={handleAnnulate} />
+            <Button
+              name="Annuler ?"
+              variant="lightgrey"
+              onClick={handleAnnulate}
+            />
           </ButtonsContainer>
         </div>
       )}
