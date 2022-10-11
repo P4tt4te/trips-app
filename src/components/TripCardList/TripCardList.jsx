@@ -15,13 +15,21 @@ const TripCardWrapper = styled.div`
   row-gap: 2rem;
 `;
 
-export const TripCardList = ({ trips }) => {
+export const TripCardList = ({ trips, addSelectTrip }) => {
   return (
     <>
       <TripCardListTitle>All the Trips</TripCardListTitle>
       <TripCardWrapper>
         {trips.map((trip, i) => {
-          return <TripCard key={i} trip={trip} />;
+          return (
+            <TripCard
+              key={i}
+              trip={trip}
+              onClick={() =>
+                addSelectTrip({ type: 'add_selectedTrip', trip: trip })
+              }
+            />
+          );
         })}
       </TripCardWrapper>
     </>

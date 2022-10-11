@@ -54,7 +54,7 @@ const TripCardSeats = styled.span`
   color: ${(props) => props.theme.colors.green};
 `;
 
-export const TripCard = ({ trip }) => {
+export const TripCard = ({ trip, onClick }) => {
   return (
     <TripCardContainer
       style={{
@@ -71,7 +71,7 @@ export const TripCard = ({ trip }) => {
         </TripCardDetails>
         <TripCardPrice>{trip.price}€</TripCardPrice>
         <TripCardSeats>{trip.seats} seats left</TripCardSeats>
-        <Button name="Select" />
+        <Button onClick={onClick} name="Select" />
       </TripCardMeta>
     </TripCardContainer>
   );
