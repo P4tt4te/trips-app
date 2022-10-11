@@ -16,7 +16,7 @@ const AppTheme = styled.div`
 function App() {
   const theme = {
     colors: COLORS,
-    fontFamily: 'Plus Jakarta Sans',
+    fontFamily: "'Plus Jakarta Sans', sans-serif",
     fontSize: '1.6rem',
   };
 

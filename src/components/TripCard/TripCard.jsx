@@ -28,16 +28,28 @@ const TripCardMeta = styled.div`
   background-color: ${(props) => props.theme.colors.white};
 `;
 
-const TripCardDate = styled.span`
+const TripCardDetails = styled.span`
   display: block;
+  color: ${(props) => props.theme.colors.grey};
+  margin-bottom: 0.4rem;
+  font-size: 1.4rem;
 `;
 
 const TripCardPrice = styled.span`
   display: block;
+  font-size: 2rem;
+  font-variation-settings: 'wght' 700;
+  margin: 2rem 0;
 `;
 
 const TripCardSeats = styled.span`
-  display: block;
+  display: inline-block;
+  background-color: ${(props) => props.theme.colors.greyGreen};
+  padding: 0.8rem;
+  border-radius: 1.2rem;
+  font-size: 1.2rem;
+  font-variation-settings: 'wght' 600;
+  color: ${(props) => props.theme.colors.green};
 `;
 
 export const TripCard = ({ trip }) => {
@@ -49,12 +61,12 @@ export const TripCard = ({ trip }) => {
     >
       <TripCardMeta>
         <TripCardTitle>{trip.destination}</TripCardTitle>
-        <TripCardDate>
+        <TripCardDetails>
           {trip.start.date}, {trip.start.location}
-        </TripCardDate>
-        <TripCardDate>
+        </TripCardDetails>
+        <TripCardDetails>
           {trip.end.date}, {trip.end.location}
-        </TripCardDate>
+        </TripCardDetails>
         <TripCardPrice>{trip.price}€</TripCardPrice>
         <TripCardSeats>{trip.seats} seats left</TripCardSeats>
         <Button name="Select" />

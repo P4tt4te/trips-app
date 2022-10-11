@@ -28,11 +28,11 @@ export const TripCardList = () => {
       destination: 'Serbie',
       image: 'serbia.jpg',
       start: {
-        date: 'December 16, 2022 03:24:00',
+        date: 'December 16, 2022 (03:24)',
         location: 'Paris',
       },
       end: {
-        date: 'December 17, 2022 03:24:00',
+        date: 'December 17, 2022 (03:24)',
         location: 'Somewhere',
       },
       price: 100,
@@ -43,11 +43,11 @@ export const TripCardList = () => {
       destination: 'Hongrie',
       image: 'hongria.jpg',
       start: {
-        date: 'December 16, 2022 03:24:00',
+        date: 'December 16, 2022 (03:24)',
         location: 'Paris',
       },
       end: {
-        date: 'December 17, 2022 03:24:00',
+        date: 'December 17, 2022 (03:24)',
         location: 'Somewhere',
       },
       price: 150,
@@ -58,11 +58,11 @@ export const TripCardList = () => {
       destination: 'Estonie',
       image: 'estonia.jpg',
       start: {
-        date: 'December 16, 2022 03:24:00',
+        date: 'December 16, 2022 (03:24)',
         location: 'Paris',
       },
       end: {
-        date: 'December 17, 2022 03:24:00',
+        date: 'December 17, 2022 (03:24)',
         location: 'Somewhere',
       },
       price: 200,
@@ -73,11 +73,11 @@ export const TripCardList = () => {
       destination: 'Bosnie',
       image: 'bosnia.jpg',
       start: {
-        date: 'December 16, 2022 03:24:00',
+        date: 'December 16, 2022 (03:24)',
         location: 'Paris',
       },
       end: {
-        date: 'December 17, 2022 03:24:00',
+        date: 'December 17, 2022 (03:24)',
         location: 'Somewhere',
       },
       price: 70,
@@ -88,11 +88,11 @@ export const TripCardList = () => {
       destination: 'Île Maurice',
       image: 'mauritius.jpg',
       start: {
-        date: 'December 16, 2022 03:24:00',
+        date: 'December 16, 2022 (03:24)',
         location: 'Paris',
       },
       end: {
-        date: 'December 17, 2022 03:24:00',
+        date: 'December 17, 2022 (03:24)',
         location: 'Somewhere',
       },
       price: 130,
@@ -103,11 +103,11 @@ export const TripCardList = () => {
       destination: 'France',
       image: 'france.jpg',
       start: {
-        date: 'December 16, 2022 03:24:00',
+        date: 'December 16, 2022 (03:24)',
         location: 'Paris',
       },
       end: {
-        date: 'December 17, 2022 03:24:00',
+        date: 'December 17, 2022 03:24',
         location: 'Somewhere',
       },
       price: 40,
