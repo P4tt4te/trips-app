@@ -2,15 +2,31 @@ import React from 'react';
 import styled from 'styled-components';
 import { TripCard } from '../TripCard/TripCard';
 
+const TripCardListContainer = styled.div`
+  border-radius: 2rem;
+  padding: 3.6rem;
+  margin: 2rem;
+  background-color: ${(props) => props.theme.colors.greyGreen};
+`;
+
 const TripCardListTitle = styled.h1`
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 3.2rem;
+  margin-bottom: 3.2rem;
+  font-variation-settings: 'wght' 700;
+`;
+
+const TripCardWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
 `;
 
 export const TripCardList = () => {
   const trips = [
     {
-      country: 'Serbie',
+      destination: 'Serbie',
+      image: 'serbia.jpg',
       start: {
         date: 'December 16, 2022 03:24:00',
         location: 'Paris',
@@ -24,7 +40,8 @@ export const TripCardList = () => {
       company: 'Ryanair',
     },
     {
-      country: 'Hongrie',
+      destination: 'Hongrie',
+      image: 'hongria.jpg',
       start: {
         date: 'December 16, 2022 03:24:00',
         location: 'Paris',
@@ -38,7 +55,8 @@ export const TripCardList = () => {
       company: 'Ryanair',
     },
     {
-      country: 'Estonie',
+      destination: 'Estonie',
+      image: 'estonia.jpg',
       start: {
         date: 'December 16, 2022 03:24:00',
         location: 'Paris',
@@ -52,7 +70,8 @@ export const TripCardList = () => {
       company: 'Ryanair',
     },
     {
-      country: 'Bosnie',
+      destination: 'Bosnie',
+      image: 'bosnia.jpg',
       start: {
         date: 'December 16, 2022 03:24:00',
         location: 'Paris',
@@ -66,7 +85,8 @@ export const TripCardList = () => {
       company: 'Ryanair',
     },
     {
-      country: 'Île Maurice',
+      destination: 'Île Maurice',
+      image: 'mauritius.jpg',
       start: {
         date: 'December 16, 2022 03:24:00',
         location: 'Paris',
@@ -80,7 +100,8 @@ export const TripCardList = () => {
       company: 'Air Mauritius',
     },
     {
-      country: 'France',
+      destination: 'France',
+      image: 'france.jpg',
       start: {
         date: 'December 16, 2022 03:24:00',
         location: 'Paris',
@@ -96,11 +117,13 @@ export const TripCardList = () => {
   ];
 
   return (
-    <>
+    <TripCardListContainer>
       <TripCardListTitle>All the Trips</TripCardListTitle>
-      {trips.map((trip, i) => {
-        return <TripCard key={i} trip={trip} />;
-      })}
-    </>
+      <TripCardWrapper>
+        {trips.map((trip, i) => {
+          return <TripCard key={i} trip={trip} />;
+        })}
+      </TripCardWrapper>
+    </TripCardListContainer>
   );
 };
