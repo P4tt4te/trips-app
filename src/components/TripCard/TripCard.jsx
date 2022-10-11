@@ -10,7 +10,7 @@ const TripCardTitle = styled.h1`
 `;
 
 const TripCardContainer = styled.div`
-  grid-column: auto / span 1;
+  grid-column: auto / span 2;
   display: flex;
   align-items: flex-end;
   height: 48rem;
@@ -26,6 +26,7 @@ const TripCardMeta = styled.div`
   padding: 2rem;
   border-radius: 2rem;
   background-color: ${(props) => props.theme.colors.white};
+  width: 100%;
 `;
 
 const TripCardDetails = styled.span`

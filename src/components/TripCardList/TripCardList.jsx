@@ -10,7 +10,7 @@ const TripCardListTitle = styled.h1`
 
 const TripCardWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
 `;
