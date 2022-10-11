@@ -10,15 +10,15 @@ const TripCardTitle = styled.h1`
 `;
 
 const TripCardContainer = styled.div`
-  grid-column: auto / span 1;
+  grid-column: auto / span 2;
   display: flex;
   align-items: flex-end;
   height: 48rem;
   border-radius: 3.2rem;
   overflow: hidden;
   padding: 2rem;
-  position: relative;
   background-size: cover;
+  background-position: top;
 `;
 
 const TripCardMeta = styled.div`
@@ -26,6 +26,7 @@ const TripCardMeta = styled.div`
   padding: 2rem;
   border-radius: 2rem;
   background-color: ${(props) => props.theme.colors.white};
+  width: 100%;
 `;
 
 const TripCardDetails = styled.span`
@@ -49,6 +50,7 @@ const TripCardSeats = styled.span`
   border-radius: 1.2rem;
   font-size: 1.2rem;
   font-variation-settings: 'wght' 600;
+  margin-bottom: 2rem;
   color: ${(props) => props.theme.colors.green};
 `;
 

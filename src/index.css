@@ -4,6 +4,7 @@ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,8 +15,16 @@ main {
   display: block;
 }
 
-h1, h2, h3, h3, h4, h5 {
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+h6,
+p {
   font-size: initial;
+  font-weight: initial;
   margin: 0;
 }
 
@@ -90,6 +99,12 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 button,

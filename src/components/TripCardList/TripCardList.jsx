@@ -2,13 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { TripCard } from '../TripCard/TripCard';
 
-const TripCardListContainer = styled.div`
-  border-radius: 2rem;
-  padding: 3.6rem;
-  margin: 2rem;
-  background-color: ${(props) => props.theme.colors.greyGreen};
-`;
-
 const TripCardListTitle = styled.h1`
   font-size: 3.2rem;
   margin-bottom: 3.2rem;
@@ -17,7 +10,7 @@ const TripCardListTitle = styled.h1`
 
 const TripCardWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
 `;
@@ -117,13 +110,13 @@ export const TripCardList = () => {
   ];
 
   return (
-    <TripCardListContainer>
+    <>
       <TripCardListTitle>All the Trips</TripCardListTitle>
       <TripCardWrapper>
         {trips.map((trip, i) => {
           return <TripCard key={i} trip={trip} />;
         })}
       </TripCardWrapper>
-    </TripCardListContainer>
+    </>
   );
 };
