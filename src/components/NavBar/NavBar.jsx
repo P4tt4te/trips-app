@@ -50,9 +50,9 @@ export const NavBar = ({ name, onClick }) => {
     <StyledNavBar>
       <LogoContainer>Trips React App</LogoContainer>
       <NavLinksContainer>
-        {linksNames.map((linkname) => {
+        {linksNames.map((linkname, i) => {
           return (
-            <Link to={linkname.link}>
+            <Link to={linkname.link} key={i}>
               <Button
                 name={linkname.name}
                 variant={
