@@ -10,11 +10,14 @@ import { ClientState } from './store/states/ClientState';
 import { ClientReducer } from './store/reducers/ClientReducer';
 import { TripsState } from './store/states/TripsState';
 import { TripsReducer } from './store/reducers/TripsReducer';
+import { SettingsContent } from './components/SettingsContent/SettingsContent';
 import { COLORS } from './style/colors';
 
 import './assets/fonts/plus-jarkarta-sans/style.css';
 
 import styled, { ThemeProvider } from 'styled-components';
+
+
 
 const theme = {
   colors: COLORS,
@@ -62,10 +65,18 @@ function App() {
                   }}
                 >
                   <Username />
-                  <Searchbar />
+                  <Searchbar onChange={null} />
                   <AppTitle>Browse Destinations</AppTitle>
                   <TripCardList trips={TripsLocalState.trips} addSelectTrip={ClientDispatch} />
                   <TripPanel trip={ClientLocalState.selectedTrip} dispatch={ClientDispatch} />
+                  <TripCardList
+                    trips={TripsLocalState.trips}
+                    addSelectTrip={ClientDispatch}
+                  />
+                  <TripPanel
+                    trip={ClientLocalState.selectedTrip}
+                    dispatch={ClientDispatch}
+                  />
                 </div>
               }
             />
@@ -88,6 +99,21 @@ function App() {
                     trips={ClientLocalState.trips}
                     dispatch={ClientDispatch}
                   />
+                </div>
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <div
+                  style={{
+                    borderRadius: '2rem',
+                    padding: '3.6rem',
+                    margin: '2rem',
+                    backgroundColor: '#EDF5F1',
+                  }}
+                >
+                  <SettingsContent username={ClientLocalState.username} onSubmit={ClientDispatch}  />
                 </div>
               }
             />

@@ -1,7 +1,11 @@
 export const ClientReducer = (state, action) => {
   switch (action.type) {
     case 'change_username':
-      return { username: action.username, trips: state.trips };
+      return {
+        username: action.username,
+        selectedTrip: state.selectedTrip,
+        trips: state.trips,
+      };
     case 'add_trip':
       return {
         username: state.username,

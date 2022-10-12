@@ -43,6 +43,10 @@ export const NavBar = ({ name, onClick }) => {
       link: '/my-trips',
       name: 'My Trips',
     },
+    {
+      link: '/settings',
+      name: 'Settings',
+    },
   ];
 
   return (

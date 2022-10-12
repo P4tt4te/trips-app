@@ -9,15 +9,12 @@ const StyledSearchbar = styled.input`
   border-radius: 0.8rem;
 `;
 
-export const Searchbar = () => {
-  function handleSearch(event) {
-    console.log(event);
-  }
-
+export const Searchbar = ({ value, onChange }) => {
   return (
     <StyledSearchbar
+      value={value}
       placeholder="Search a destination"
-      onChange={(event) => handleSearch(event)}
+      onChange={(e) => onChange(e.target.value)}
     />
   );
 };
