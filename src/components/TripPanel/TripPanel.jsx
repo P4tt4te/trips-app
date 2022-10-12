@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
 
@@ -20,6 +20,13 @@ const StyledTripPanel = styled.div`
 const TripPanelTitle = styled.div`
   font-variation-settings: 'wght' 700;
   font-size: 3.2rem;
+  margin-bottom: 1.6rem;
+`;
+
+const TripPanelSubTitle = styled.div`
+  font-variation-settings: 'wght' 700;
+  font-size: 2.4rem;
+  margin-top: 1.6rem;
   margin-bottom: 1.6rem;
 `;
 
@@ -50,12 +57,31 @@ const ButtonsContainer = styled.div`
   display: 100%;
 `;
 
+const TripPanelSeatsSelector = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
+const SeatsChoiceContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const TripPanel = ({ trip, dispatch, setSeats }) => {
+  const [seatsChoice, setSeatsChoice] = useState(1);
+
+  useEffect(() => {
+    if(seatsChoice < 1) {
+      setSeatsChoice(1);
+    }
+  },[seatsChoice]);
 
   const handleValidate = () => {
     dispatch({ type: 'add_trip', trip: trip });
     dispatch({ type: 'remove_selectedTrip' });
-    setSeats({ type: 'change_seats', seats: -1, idTrip: trip.id });
+    setSeats({ type: 'change_seats', seats: -seatsChoice, idTrip: trip.id });
   };
 
   const handleAnnulate = () => {
@@ -73,6 +99,18 @@ export const TripPanel = ({ trip, dispatch, setSeats }) => {
               <TripPanelItemDate>{trip.start.date}</TripPanelItemDate>
               <TripPanelItemPrice>{trip.price}€</TripPanelItemPrice>
             </TripPanelItem>
+            <TripPanelSubTitle>Number of seats :</TripPanelSubTitle>
+            <TripPanelSeatsSelector>
+              <Button
+                name="-"
+                onClick={() => setSeatsChoice(seatsChoice - 1)}
+              />
+              <SeatsChoiceContainer>{seatsChoice}</SeatsChoiceContainer>
+              <Button
+                name="+"
+                onClick={() => setSeatsChoice(seatsChoice + 1)}
+              />
+            </TripPanelSeatsSelector>
           </>
         )}
       </div>
