@@ -24,6 +24,7 @@ export const HomeView = ({
   addSelectTrip,
   trip,
   dispatch,
+  changeSeats
 }) => {
   return (
     <HomeViewContainer>
@@ -31,8 +32,7 @@ export const HomeView = ({
       <Searchbar onChange={null} />
       <AppTitle>Browse Destinations</AppTitle>
       <TripCardList trips={trips} addSelectTrip={addSelectTrip} />
-      <TripPanel trip={trip} dispatch={dispatch} />
-      <TripCardList trips={trips} addSelectTrip={addSelectTrip} />
+      <TripPanel trip={trip} dispatch={dispatch} setSeats={changeSeats} />
     </HomeViewContainer>
   );
 };

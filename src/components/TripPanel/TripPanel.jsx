@@ -50,12 +50,12 @@ const ButtonsContainer = styled.div`
   display: 100%;
 `;
 
-export const TripPanel = ({ trip, dispatch }) => {
-  useEffect(() => {}, [trip]);
+export const TripPanel = ({ trip, dispatch, setSeats }) => {
 
   const handleValidate = () => {
     dispatch({ type: 'add_trip', trip: trip });
     dispatch({ type: 'remove_selectedTrip' });
+    setSeats({ type: 'change_seats', seats: -1, idTrip: trip.id });
   };
 
   const handleAnnulate = () => {
