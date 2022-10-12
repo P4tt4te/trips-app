@@ -7,9 +7,8 @@ const StyledNavBar = styled.div`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.gray};
   padding: 2rem;
-  background-color: #20b970;
-  border-radius: 0.8rem;
-  background: white;
+  border-radius: .8rem;
+  background-color: ${(props) => props.theme.colors.white};
   width: 24rem;
   display: flex;
   flex-direction: column;
