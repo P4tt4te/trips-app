@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { CompanyLogo } from '../CompanyLogo/CompanyLogo';
 import { Button } from '../Button/Button';
 
 const StyledTripPanel = styled.div`
@@ -20,7 +21,7 @@ const StyledTripPanel = styled.div`
 const TripPanelTitle = styled.div`
   font-variation-settings: 'wght' 700;
   font-size: 3.2rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
 `;
 
 const TripPanelSubTitle = styled.div`
@@ -69,14 +70,21 @@ const SeatsChoiceContainer = styled.div`
   align-items: center;
 `;
 
+const CompanyLogoContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.6rem;
+  margin-left: .8rem;
+`;
+
 export const TripPanel = ({ trip, dispatch, setSeats }) => {
   const [seatsChoice, setSeatsChoice] = useState(1);
 
   useEffect(() => {
-    if(seatsChoice < 1) {
+    if (seatsChoice < 1) {
       setSeatsChoice(1);
     }
-  },[seatsChoice]);
+  }, [seatsChoice]);
 
   const handleValidate = () => {
     dispatch({ type: 'add_trip', trip: trip, seats: seatsChoice });
@@ -95,6 +103,10 @@ export const TripPanel = ({ trip, dispatch, setSeats }) => {
         <TripPanelTitle>Your selection</TripPanelTitle>
         {trip && (
           <>
+            <CompanyLogoContainer>
+              <span>with</span>
+              <CompanyLogo company={trip.company} />
+            </CompanyLogoContainer>
             <TripPanelItem>
               <TripPanelItemTitle>{trip.destination}</TripPanelItemTitle>
               <TripPanelItemDate>{trip.start.date}</TripPanelItemDate>
