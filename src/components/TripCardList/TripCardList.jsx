@@ -7,6 +7,7 @@ const TripCardWrapper = styled.div`
   grid-template-columns: repeat(6, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
+  margin-top: 3.2rem;
 `;
 
 export const TripCardList = ({ trips, addSelectTrip }) => {

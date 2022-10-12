@@ -5,39 +5,53 @@ import { Button } from '../Button/Button';
 const StyledTripPanel = styled.div`
   position: fixed;
   backdrop-filter: blur(10px);
+  top: 0;
   bottom: 0;
   right: ${(props) => props.width};
-  top: 0;
-  width: 400px;
+  width: 40rem;
   background: white;
-  transition: 0.4s ease-out all;
-  padding: 2rem;
+  transition: 1s cubic-bezier(0.28, 1.01, 0.37, 1) all;
+  padding: 3.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const HeaderTripPanel = styled.div`
+const TripPanelTitle = styled.div`
   font-variation-settings: 'wght' 700;
-  font-size: 4rem;
-  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 1.6rem;
 `;
 
-const TripContainer = styled.div`
-  padding: 1rem;
-  border-radius: 1rem;
+const TripPanelItem = styled.div`
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: ${(props) => props.theme.colors.lightGrey};
+`;
+
+const TripPanelItemTitle = styled.h3`
+  font-variation-settings: 'wght' 700;
+  margin-bottom: 0.8rem;
+`;
+
+const TripPanelItemDate = styled.div`
+  color: ${(props) => props.theme.colors.grey};
+`;
+
+const TripPanelItemPrice = styled.span`
+  display: block;
+  font-variation-settings: 'wght' 700;
+  margin-top: 0.8rem;
 `;
 
 const ButtonsContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 2rem;
   display: 100%;
 `;
 
 export const TripPanel = ({ trip, dispatch }) => {
-  useEffect(() => {
-    console.log(trip);
-  }, [trip]);
+  useEffect(() => {}, [trip]);
 
   const handleValidate = () => {
     dispatch({ type: 'add_trip', trip: trip });
@@ -49,24 +63,25 @@ export const TripPanel = ({ trip, dispatch }) => {
   };
 
   return (
-    <StyledTripPanel width={trip ? '0' : '-400px'}>
-      <HeaderTripPanel>Votre voyage :</HeaderTripPanel>
-      {trip && (
-        <div>
-          <TripContainer>
-            <p>destination :</p>
-            <p>{trip.destination}</p>
-          </TripContainer>
-          <ButtonsContainer>
-            <Button name="Valider la réservation" onClick={handleValidate} />
-            <Button
-              name="Annuler ?"
-              variant="lightgrey"
-              onClick={handleAnnulate}
-            />
-          </ButtonsContainer>
-        </div>
-      )}
+    <StyledTripPanel width={trip ? '0' : '-100%'}>
+      <div>
+        <TripPanelTitle>Your selection</TripPanelTitle>
+        {trip && (
+          <>
+            <TripPanelItem>
+              <TripPanelItemTitle>{trip.destination}</TripPanelItemTitle>
+              <TripPanelItemDate>{trip.start.date}</TripPanelItemDate>
+              <TripPanelItemPrice>{trip.price}€</TripPanelItemPrice>
+            </TripPanelItem>
+          </>
+        )}
+      </div>
+      <div className="test">
+        <ButtonsContainer>
+          <Button name="Confirm selection" onClick={handleValidate} />
+          <Button name="Cancel" variant="lightgrey" onClick={handleAnnulate} />
+        </ButtonsContainer>
+      </div>
     </StyledTripPanel>
   );
 };
