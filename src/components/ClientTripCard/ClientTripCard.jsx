@@ -63,7 +63,19 @@ const ClientTripCardPrice = styled.span`
   margin-top: 2rem;
 `;
 
-export const ClientTripCard = ({ trip, dispatch, seats }) => {
+export const ClientTripCard = ({ trip, dispatch, seats, changeSeats }) => {
+  const handleDelete = () => {
+    dispatch({
+      type: 'remove_trip',
+      tripId: trip.id,
+    });
+    changeSeats({
+      type: 'change_seats',
+      idTrip: trip.id,
+      seats: seats,
+    });
+  };
+
   return (
     <ClientTripCardContainer>
       <ClientTripCardMeta>
@@ -71,18 +83,13 @@ export const ClientTripCard = ({ trip, dispatch, seats }) => {
         <div>
           <ClientTripCardTitle>{trip.destination}</ClientTripCardTitle>
           <ClientTripCardDetails>{trip.start.date}</ClientTripCardDetails>
-          <ClientTripCardDetails>Number of seats : {seats}</ClientTripCardDetails>
+          <ClientTripCardDetails>
+            Number of seats : {seats}
+          </ClientTripCardDetails>
           <ClientTripCardPrice>{trip.price}€</ClientTripCardPrice>
         </div>
       </ClientTripCardMeta>
-      <ClientTripCardDelete
-        onClick={() =>
-          dispatch({
-            type: 'remove_trip',
-            tripId: trip.id,
-          })
-        }
-      >
+      <ClientTripCardDelete onClick={handleDelete}>
         <svg
           fill="#BCC8C2"
           xmlns="http://www.w3.org/2000/svg"

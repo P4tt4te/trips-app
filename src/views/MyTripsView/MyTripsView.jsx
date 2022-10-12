@@ -15,11 +15,11 @@ const AppTitle = styled.h1`
   font-variation-settings: 'wght' 700;
 `;
 
-export const MyTripsView = ({ trips, dispatch }) => {
+export const MyTripsView = ({ trips, dispatch, changeSeats }) => {
   return (
     <MyTripsViewContainer>
       <AppTitle>Your Booked Trips 🗓️</AppTitle>
-      <ClientTripCardList trips={trips} dispatch={dispatch} />
+      <ClientTripCardList trips={trips} dispatch={dispatch} changeSeats={changeSeats} />
     </MyTripsViewContainer>
   );
 };

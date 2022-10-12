@@ -63,6 +63,7 @@ function App() {
                 <MyTripsView
                   trips={ClientLocalState.trips}
                   dispatch={ClientDispatch}
+                  changeSeats={TripsDispatch}
                 />
               }
             />

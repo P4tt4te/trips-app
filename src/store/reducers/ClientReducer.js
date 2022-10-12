@@ -7,13 +7,38 @@ export const ClientReducer = (state, action) => {
         trips: state.trips,
       };
     case 'add_trip':
-      return {
-        username: state.username,
-        selectedTrip: state.selectedTrip,
-        trips: [...state.trips, { trip: action.trip, seats: action.seats }],
-      };
+      let tripExist = state.trips.findIndex(
+        (trip) => trip.trip.id === action.trip.id
+      );
+      if (tripExist === -1) {
+        return {
+          username: state.username,
+          selectedTrip: state.selectedTrip,
+          trips: [...state.trips, { trip: action.trip, seats: action.seats }],
+        };
+      } else {
+        let tripsWithoutSelected = state.trips.filter(
+          (trip) => trip.id !== action.idTrip
+        );
+        let selectedTrip = state.trips.filter(
+          (trip) => trip.id === action.idTrip
+        );
+        return {
+          username: state.username,
+          selectedTrip: state.selectedTrip,
+          trips: [
+            ...tripsWithoutSelected,
+            {
+              trip: selectedTrip[0].trip,
+              seats: selectedTrip[0].seats + parseInt(action.seats),
+            },
+          ],
+        };
+      }
     case 'remove_trip':
-      let newtrips = state.trips.filter((trip) => trip.trip.id !== action.tripId);
+      let newtrips = state.trips.filter(
+        (trip) => trip.trip.id !== action.tripId
+      );
       return {
         username: state.username,
         selectedTrip: state.selectedTrip,
