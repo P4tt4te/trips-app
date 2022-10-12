@@ -15,15 +15,19 @@ export const TripCardList = ({ trips, addSelectTrip }) => {
     <>
       <TripCardWrapper>
         {trips.map((trip, i) => {
-          return (
-            <TripCard
-              key={i}
-              trip={trip}
-              onClick={() =>
-                addSelectTrip({ type: 'add_selectedTrip', trip: trip })
-              }
-            />
-          );
+          if (trip.seats > 0) {
+            return (
+              <TripCard
+                key={i}
+                trip={trip}
+                onClick={() =>
+                  addSelectTrip({ type: 'add_selectedTrip', trip: trip })
+                }
+              />
+            );
+          } else {
+            return null;
+          }
         })}
       </TripCardWrapper>
     </>

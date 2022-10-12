@@ -48,7 +48,7 @@ export const TripsState = {
       },
       price: 200,
       seats: 70,
-      company: 'Ryanair',
+      company: 'British Airways',
     },
     {
       id: uniqid(),
@@ -80,7 +80,7 @@ export const TripsState = {
       },
       price: 130,
       seats: 70,
-      company: 'Air Mauritius',
+      company: 'American Airlines',
     },
     {
       id: uniqid(),

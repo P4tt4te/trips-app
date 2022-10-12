@@ -53,6 +53,7 @@ function App() {
                   addSelectTrip={ClientDispatch}
                   trip={ClientLocalState.selectedTrip}
                   dispatch={ClientDispatch}
+                  changeSeats={TripsDispatch}
                 />
               }
             />
@@ -62,6 +63,7 @@ function App() {
                 <MyTripsView
                   trips={ClientLocalState.trips}
                   dispatch={ClientDispatch}
+                  changeSeats={TripsDispatch}
                 />
               }
             />
