@@ -10,25 +10,37 @@ const TripCardWrapper = styled.div`
   margin-top: 3.2rem;
 `;
 
-export const TripCardList = ({ trips, addSelectTrip }) => {
+export const TripCardList = ({ query, trips, addSelectTrip }) => {
   return (
     <>
       <TripCardWrapper>
-        {trips.map((trip, i) => {
-          if (trip.seats > 0) {
-            return (
-              <TripCard
-                key={i}
-                trip={trip}
-                onClick={() =>
-                  addSelectTrip({ type: 'add_selectedTrip', trip: trip })
-                }
-              />
-            );
-          } else {
-            return null;
-          }
-        })}
+        {trips
+          .filter((trip) => {
+            if (query === '') {
+              return trip;
+            } else if (
+              trip.destination
+                .toLocaleLowerCase()
+                .includes(query.toLocaleLowerCase())
+            ) {
+              return trip;
+            }
+          })
+          .map((trip, i) => {
+            if (trip.seats > 0) {
+              return (
+                <TripCard
+                  key={i}
+                  trip={trip}
+                  onClick={() =>
+                    addSelectTrip({ type: 'add_selectedTrip', trip: trip })
+                  }
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
       </TripCardWrapper>
     </>
   );

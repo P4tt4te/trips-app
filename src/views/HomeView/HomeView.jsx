@@ -6,6 +6,8 @@ import { Searchbar } from './../../components/Searchbar/Searchbar';
 import { Username } from './../../components/Username/Username';
 import { TripPanel } from './../../components/TripPanel/TripPanel';
 
+import { useState } from 'react';
+
 const HomeViewContainer = styled.section`
   border-radius: 2rem;
   padding: 3.6rem;
@@ -24,14 +26,17 @@ export const HomeView = ({
   addSelectTrip,
   trip,
   dispatch,
-  changeSeats
+  changeSeats,
 }) => {
+
+  const [query, setQuery] = useState('');
+
   return (
     <HomeViewContainer>
       <Username username={username} />
-      <Searchbar onChange={null} />
+      <Searchbar setQuery={setQuery} />
       <AppTitle>Browse Destinations</AppTitle>
-      <TripCardList trips={trips} addSelectTrip={addSelectTrip} />
+      <TripCardList query={query} trips={trips} addSelectTrip={addSelectTrip} />
       <TripPanel trip={trip} dispatch={dispatch} setSeats={changeSeats} />
     </HomeViewContainer>
   );
