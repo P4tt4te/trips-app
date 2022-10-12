@@ -84,9 +84,9 @@ export const ClientTripCard = ({ trip, dispatch, seats, changeSeats }) => {
           <ClientTripCardTitle>{trip.destination}</ClientTripCardTitle>
           <ClientTripCardDetails>{trip.start.date}</ClientTripCardDetails>
           <ClientTripCardDetails>
-            Number of seats : {seats}
+            Number of seats : {seats} * {trip.price} €
           </ClientTripCardDetails>
-          <ClientTripCardPrice>{trip.price}€</ClientTripCardPrice>
+          <ClientTripCardPrice>{trip.price * seats}€</ClientTripCardPrice>
         </div>
       </ClientTripCardMeta>
       <ClientTripCardDelete onClick={handleDelete}>
