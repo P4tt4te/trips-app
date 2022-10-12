@@ -18,11 +18,13 @@ export const ClientReducer = (state, action) => {
         };
       } else {
         let tripsWithoutSelected = state.trips.filter(
-          (trip) => trip.id !== action.idTrip
+          (trip) => trip.trip.id !== action.trip.id
         );
+
         let selectedTrip = state.trips.filter(
-          (trip) => trip.id === action.idTrip
+          (trip) => trip.trip.id === action.trip.id
         );
+
         return {
           username: state.username,
           selectedTrip: state.selectedTrip,
