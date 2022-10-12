@@ -22,7 +22,7 @@ export const ClientTripCardList = ({ trips, dispatch }) => {
         <ClientTripCardWrapper>
           {trips.map((trip, i) => {
             return (
-              <ClientTripCard key={trip.id} trip={trip} dispatch={dispatch} />
+              <ClientTripCard key={trip.trip.id} trip={trip.trip} seats={trip.seats} dispatch={dispatch} />
             );
           })}
         </ClientTripCardWrapper>

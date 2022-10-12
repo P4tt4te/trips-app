@@ -63,7 +63,7 @@ const ClientTripCardPrice = styled.span`
   margin-top: 2rem;
 `;
 
-export const ClientTripCard = ({ trip, dispatch }) => {
+export const ClientTripCard = ({ trip, dispatch, seats }) => {
   return (
     <ClientTripCardContainer>
       <ClientTripCardMeta>
@@ -71,6 +71,7 @@ export const ClientTripCard = ({ trip, dispatch }) => {
         <div>
           <ClientTripCardTitle>{trip.destination}</ClientTripCardTitle>
           <ClientTripCardDetails>{trip.start.date}</ClientTripCardDetails>
+          <ClientTripCardDetails>Number of seats : {seats}</ClientTripCardDetails>
           <ClientTripCardPrice>{trip.price}€</ClientTripCardPrice>
         </div>
       </ClientTripCardMeta>

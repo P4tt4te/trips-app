@@ -10,10 +10,10 @@ export const ClientReducer = (state, action) => {
       return {
         username: state.username,
         selectedTrip: state.selectedTrip,
-        trips: [...state.trips, action.trip],
+        trips: [...state.trips, { trip: action.trip, seats: action.seats }],
       };
     case 'remove_trip':
-      let newtrips = state.trips.filter((trip) => trip.id !== action.tripId);
+      let newtrips = state.trips.filter((trip) => trip.trip.id !== action.tripId);
       return {
         username: state.username,
         selectedTrip: state.selectedTrip,

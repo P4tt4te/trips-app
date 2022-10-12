@@ -79,9 +79,10 @@ export const TripPanel = ({ trip, dispatch, setSeats }) => {
   },[seatsChoice]);
 
   const handleValidate = () => {
-    dispatch({ type: 'add_trip', trip: trip });
+    dispatch({ type: 'add_trip', trip: trip, seats: seatsChoice });
     dispatch({ type: 'remove_selectedTrip' });
     setSeats({ type: 'change_seats', seats: -seatsChoice, idTrip: trip.id });
+    setSeatsChoice(1);
   };
 
   const handleAnnulate = () => {
