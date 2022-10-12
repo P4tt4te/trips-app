@@ -10,9 +10,15 @@ const TripCardWrapper = styled.div`
   margin-top: 3.2rem;
 `;
 
+const TripCardEmpty = styled.p`
+  color: ${(props) => props.theme.colors.grey};
+  margin-top: 1.6rem;
+`;
+
 export const TripCardList = ({ query, trips, addSelectTrip }) => {
   return (
     <>
+      {/* {query !== "" ? ( */}
       <TripCardWrapper>
         {trips
           .filter((trip) => {
@@ -42,6 +48,9 @@ export const TripCardList = ({ query, trips, addSelectTrip }) => {
             }
           })}
       </TripCardWrapper>
+      {/* ) : (
+        <TripCardEmpty>No trip fits your query. Try another one!</TripCardEmpty>
+      )} */}
     </>
   );
 };
