@@ -7,7 +7,7 @@ const StyledNavBar = styled.div`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.gray};
   padding: 2rem;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
   background-color: ${(props) => props.theme.colors.white};
   width: 24rem;
   display: flex;
@@ -51,7 +51,7 @@ export const NavBar = ({ name, onClick }) => {
 
   return (
     <StyledNavBar>
-      <LogoContainer>Trips React App</LogoContainer>
+      <LogoContainer>Travel(er)</LogoContainer>
       <NavLinksContainer>
         {linksNames.map((linkname, i) => {
           return (
@@ -59,7 +59,7 @@ export const NavBar = ({ name, onClick }) => {
               <Button
                 name={linkname.name}
                 variant={
-                  location.pathname === linkname.link ? 'default' : 'gray'
+                  location.pathname === linkname.link ? 'default' : 'grey'
                 }
               />
             </Link>

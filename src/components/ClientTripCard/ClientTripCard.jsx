@@ -24,7 +24,13 @@ const ClientTripCardDelete = styled.span`
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.25s ease-in-out;
+  transition: 0.2s ease-in-out;
+  transition-property: opacity, transform;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const ClientTripCardContainer = styled.div`
@@ -72,7 +78,7 @@ export const ClientTripCard = ({ trip, dispatch }) => {
         onClick={() =>
           dispatch({
             type: 'remove_trip',
-            tripId: trip.id
+            tripId: trip.id,
           })
         }
       >

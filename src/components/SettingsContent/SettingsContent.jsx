@@ -13,6 +13,12 @@ const SettingsContentTitle = styled.h1`
   font-variation-settings: 'wght' 700;
 `;
 
+const SettingsContentSubtitle = styled.h2`
+  font-size: 1.6rem;
+  margin: 3.2rem 0 1.6rem 0;
+  font-variation-settings: 'wght' 600;
+`;
+
 const SettingsContentBaseline = styled.h1`
   color: ${(props) => props.theme.colors.grey};
 `;
@@ -23,14 +29,12 @@ export const SettingsContent = ({ username, onSubmit }) => {
   return (
     <SettingsContentContainer>
       <SettingsContentTitle>Settings ⚙️</SettingsContentTitle>
-      <SettingsContentBaseline>
-        Change your name fast please !!!
-      </SettingsContentBaseline>
-      <SettingsContentTitle>Change Username</SettingsContentTitle>
+      <SettingsContentBaseline>Update your user data</SettingsContentBaseline>
+      <SettingsContentSubtitle>Change Username</SettingsContentSubtitle>
       <Searchbar value={input} onChange={setInput} />
       <Button
         onClick={() => onSubmit({ type: 'change_username', username: input })}
-        name="Validate"
+        name="Save"
       />
     </SettingsContentContainer>
   );

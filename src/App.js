@@ -1,23 +1,20 @@
 import { useReducer } from 'react';
-import { NavBar } from './components/NavBar/NavBar';
-import { TripCardList } from './components/TripCardList/TripCardList';
-import { ClientTripCardList } from './components/ClientTripCardList/ClientTripCardList';
-import { Searchbar } from './components/Searchbar/Searchbar';
-import { Username } from './components/Username/Username';
-import { TripPanel } from './components/TripPanel/TripPanel';
 import { Routes, Route } from 'react-router-dom';
 import { ClientState } from './store/states/ClientState';
 import { ClientReducer } from './store/reducers/ClientReducer';
 import { TripsState } from './store/states/TripsState';
 import { TripsReducer } from './store/reducers/TripsReducer';
-import { SettingsContent } from './components/SettingsContent/SettingsContent';
-import { COLORS } from './style/colors';
-
-import './assets/fonts/plus-jarkarta-sans/style.css';
 
 import styled, { ThemeProvider } from 'styled-components';
+import { COLORS } from './style/colors';
 
+import { NavBar } from './components/NavBar/NavBar';
 
+import { HomeView } from './views/HomeView/HomeView';
+import { MyTripsView } from './views/MyTripsView/MyTripsView';
+import { SettingsView } from './views/SettingsView/SettingsView';
+
+import './assets/fonts/plus-jarkarta-sans/style.css';
 
 const theme = {
   colors: COLORS,
@@ -31,12 +28,6 @@ const AppTheme = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: start;
-`;
-
-const AppTitle = styled.h1`
-  font-size: 3.2rem;
-  margin-bottom: 3.2rem;
-  font-variation-settings: 'wght' 700;
 `;
 
 function App() {
@@ -56,65 +47,31 @@ function App() {
             <Route
               path="/"
               element={
-                <div
-                  style={{
-                    borderRadius: '2rem',
-                    padding: '3.6rem',
-                    margin: '2rem',
-                    backgroundColor: '#EDF5F1',
-                  }}
-                >
-                  <Username />
-                  <Searchbar onChange={null} />
-                  <AppTitle>Browse Destinations</AppTitle>
-                  <TripCardList trips={TripsLocalState.trips} addSelectTrip={ClientDispatch} />
-                  <TripPanel trip={ClientLocalState.selectedTrip} dispatch={ClientDispatch} />
-                  <TripCardList
-                    trips={TripsLocalState.trips}
-                    addSelectTrip={ClientDispatch}
-                  />
-                  <TripPanel
-                    trip={ClientLocalState.selectedTrip}
-                    dispatch={ClientDispatch}
-                  />
-                </div>
+                <HomeView
+                  username={ClientLocalState.username}
+                  trips={TripsLocalState.trips}
+                  addSelectTrip={ClientDispatch}
+                  trip={ClientLocalState.selectedTrip}
+                  dispatch={ClientDispatch}
+                />
               }
             />
             <Route
               path="my-trips"
               element={
-                <div
-                  style={{
-                    borderRadius: '2rem',
-                    padding: '3.6rem',
-                    margin: '2rem',
-                    backgroundColor: '#EDF5F1',
-                  }}
-                >
-                  <AppTitle>
-                    {/* {ClientLocalState.username} */}
-                    Your Booked Trips
-                  </AppTitle>
-                  <ClientTripCardList
-                    trips={ClientLocalState.trips}
-                    dispatch={ClientDispatch}
-                  />
-                </div>
+                <MyTripsView
+                  trips={ClientLocalState.trips}
+                  dispatch={ClientDispatch}
+                />
               }
             />
             <Route
               path="settings"
               element={
-                <div
-                  style={{
-                    borderRadius: '2rem',
-                    padding: '3.6rem',
-                    margin: '2rem',
-                    backgroundColor: '#EDF5F1',
-                  }}
-                >
-                  <SettingsContent username={ClientLocalState.username} onSubmit={ClientDispatch}  />
-                </div>
+                <SettingsView
+                  username={ClientLocalState.username}
+                  dispatch={ClientDispatch}
+                />
               }
             />
           </Routes>

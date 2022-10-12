@@ -15,11 +15,11 @@ const UsernameBaseline = styled.h1`
   color: ${(props) => props.theme.colors.grey};
 `;
 
-export const Username = () => {
+export const Username = ({username}) => {
   return (
     <UsernameContainer>
-      <UsernameTitle>Hello, Anonymous! 👋</UsernameTitle>
-      <UsernameBaseline>Welcome back and find your dreamed destination</UsernameBaseline>
+      <UsernameTitle>Hello, {username} 👋</UsernameTitle>
+      <UsernameBaseline>Welcome to our travel app. Start browsing now!</UsernameBaseline>
     </UsernameContainer>
   );
 };

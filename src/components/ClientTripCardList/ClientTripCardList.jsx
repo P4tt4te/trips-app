@@ -7,6 +7,12 @@ const ClientTripCardWrapper = styled.div`
   grid-template-columns: repeat(6, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
+  margin-top: 3.2rem;
+`;
+
+const ClientTripCardEmpty = styled.p`
+  color: ${(props) => props.theme.colors.grey};
+  margin-top: 1.6rem;
 `;
 
 export const ClientTripCardList = ({ trips, dispatch }) => {
@@ -21,7 +27,9 @@ export const ClientTripCardList = ({ trips, dispatch }) => {
           })}
         </ClientTripCardWrapper>
       ) : (
-        <p>You have no planned trip. Let's book one!</p>
+        <ClientTripCardEmpty>
+          You have no planned trip. Let's book one!
+        </ClientTripCardEmpty>
       )}
     </>
   );
