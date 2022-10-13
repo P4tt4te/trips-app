@@ -10,26 +10,47 @@ const TripCardWrapper = styled.div`
   margin-top: 3.2rem;
 `;
 
-export const TripCardList = ({ trips, addSelectTrip }) => {
+const TripCardEmpty = styled.p`
+  color: ${(props) => props.theme.colors.grey};
+  margin-top: 1.6rem;
+`;
+
+export const TripCardList = ({ query, trips, addSelectTrip }) => {
   return (
     <>
+      {/* {query !== "" ? ( */}
       <TripCardWrapper>
-        {trips.map((trip, i) => {
-          if (trip.seats > 0) {
-            return (
-              <TripCard
-                key={i}
-                trip={trip}
-                onClick={() =>
-                  addSelectTrip({ type: 'add_selectedTrip', trip: trip })
-                }
-              />
-            );
-          } else {
-            return null;
-          }
-        })}
+        {trips
+          .filter((trip) => {
+            if (query === '') {
+              return trip;
+            } else if (
+              trip.destination
+                .toLocaleLowerCase()
+                .includes(query.toLocaleLowerCase())
+            ) {
+              return trip;
+            }
+          })
+          .map((trip, i) => {
+            if (trip.seats > 0) {
+              return (
+                <TripCard
+                  key={i}
+                  trip={trip}
+                  onClick={() =>
+                    addSelectTrip({ type: 'add_selectedTrip', trip: trip })
+                  }
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
       </TripCardWrapper>
+      {/* ) : (
+        <TripCardEmpty>No trip fits your query. Try another one!</TripCardEmpty>
+      )} */}
     </>
   );
 };
